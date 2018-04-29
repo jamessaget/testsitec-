@@ -1,0 +1,15 @@
+﻿@model WebApplication1.ViewModels.ProductViewModel
+@{
+    ViewBag.Title = "Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>All Products</h2>
+<ul>
+@foreach (var i in Model.Products)
+{
+    <li><a href="#">@i.Name</a></li>
+}
+
+@* Add individual product page view then add attribute routes *@
+</ul>
