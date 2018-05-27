@@ -1,15 +1,19 @@
-﻿@model WebApplication1.ViewModels.ProductViewModel
+﻿@model IEnumerable<WebApplication1.Models.Product>
 @{
     ViewBag.Title = "Products";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>All Products</h2>
-<ul>
-@foreach (var i in Model.Products)
-{
-    <li><a href="#">@i.Name</a></li>
-}
 
-@* Add individual product page view then add attribute routes *@
+
+
+
+    <ul>
+    @foreach (var e in Model)
+    {
+        <p>@Html.ActionLink(e.Name, "ProductDetails", "Products", new { i = e.Name} ,null)</p>
+    }
+
+    @* Add individual product page view then add attribute routes *@
 </ul>

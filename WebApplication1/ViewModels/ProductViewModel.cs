@@ -9,7 +9,7 @@ namespace WebApplication1.ViewModels
     public class ProductViewModel
     {
         public Movie Movie { get; set;  }
-       public List<Product> Products { get; set; }
+       public List<Product> Product { get; set; }
 
     }
 }

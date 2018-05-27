@@ -11,39 +11,39 @@ namespace WebApplication1.Controllers
     public class ProductsController : Controller
     {
         // GET: Product
+        
         public ActionResult AllProducts()
         {
-            var movie = new Movie { Name = "Shrek" };
 
-            var p1 = new List<Product>
-            {
-                new Product { Name = "headphones1" },
-                new Product { Name = "headphones2" },
-                new Product { Name = "headphones3" },
-                new Product { Name = "headphones4" },
-                new Product { Name = "headphones5" },
-
-            };
-
-            var viewModel = new ProductViewModel()
-            {
-                Products = p1,
-                Movie = movie
+            var listProducts = GetProducts();
                 
-
-            };
-
-
-            return View(viewModel);
+            return View(listProducts);
         }
 
-        public ActionResult Product()
+        public ActionResult ProductDetails(string i)
         {
 
+            var product = GetProducts().SingleOrDefault(c => c.Name == i);
 
-
-            return View();
+            if (product == null) { 
+                return HttpNotFound();
+            }
+            return View(product);
         }
+
+        private IEnumerable<Product> GetProducts()
+        {
+            return new List<Product>
+            {
+                new Product { Name = "headphones1", Description = "average headphones", Price = 10 },
+                new Product { Name = "headphones2", Description = "expensive headphones", Price = 80 },
+                new Product { Name = "headphones3", Description = "good value headphones", Price = 30 },
+                new Product { Name = "headphones4", Description = "cheap headphones", Price = 20 },
+                new Product { Name = "headphones5", Description = "quality headphones", Price = 100 },
+            };
+
+        }
+
 
     }
 }
