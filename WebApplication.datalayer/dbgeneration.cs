@@ -8,7 +8,7 @@ using WebApplication1.Models;
 
 namespace WebApplication.datalayer
 {
-    public class Class1 : DbContext
+    public class dbgeneration : DbContext
     {
         public DbSet<Product> Products {get; set;}
         public DbSet<Movie> Movies { get; set; }
