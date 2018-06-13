@@ -25,22 +25,6 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [Route("home/products/{p1}") ]
-        public ActionResult Products(string p1)
-        {
-
-            var product = new Product()
-            {
-                Name = "headphones",
-                Price = 50
-            };
-
-            p1 = product.Name;
-            
-
-
-            return View(product);
-        }
 
             public ActionResult Contact()
         {

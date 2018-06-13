@@ -34,10 +34,13 @@ namespace WebApplication1.Controllers
             return View(listProducts);
         }
 
+
+        [Route("~/Product/{i}")]
         public ActionResult ProductDetails(string i)
         {
-
-            var product = _context.Products.SingleOrDefault(c => c.Name == i);
+            
+            
+        var product = _context.Products.SingleOrDefault(c => c.Name == i);
 
             if (product == null) { 
                 return HttpNotFound();
