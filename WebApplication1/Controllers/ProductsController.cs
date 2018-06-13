@@ -5,17 +5,31 @@ using System.Web;
 using System.Web.Mvc;
 using WebApplication1.Models;
 using WebApplication1.ViewModels;
+using System.Data.Entity;
+using WebApplication.datalayer;
+
+
 
 namespace WebApplication1.Controllers
 {
     public class ProductsController : Controller
     {
+        private dbgeneration _context;
+
+        public ProductsController() {
+            _context = new dbgeneration();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            _context.Dispose();
+        }
+
         // GET: Product
-        
+
         public ActionResult AllProducts()
         {
-
-            var listProducts = GetProducts();
+            var listProducts = _context.Products.ToList(); 
                 
             return View(listProducts);
         }
@@ -23,7 +37,7 @@ namespace WebApplication1.Controllers
         public ActionResult ProductDetails(string i)
         {
 
-            var product = GetProducts().SingleOrDefault(c => c.Name == i);
+            var product = _context.Products.SingleOrDefault(c => c.Name == i);
 
             if (product == null) { 
                 return HttpNotFound();
@@ -31,19 +45,9 @@ namespace WebApplication1.Controllers
             return View(product);
         }
 
-        private IEnumerable<Product> GetProducts()
-        {
-            return new List<Product>
-            {
-                new Product { Name = "headphones1", Description = "average headphones", Price = 10 },
-                new Product { Name = "headphones2", Description = "expensive headphones", Price = 80 },
-                new Product { Name = "headphones3", Description = "good value headphones", Price = 30 },
-                new Product { Name = "headphones4", Description = "cheap headphones", Price = 20 },
-                new Product { Name = "headphones5", Description = "quality headphones", Price = 100 },
-            };
+     
 
         }
 
 
     }
-}

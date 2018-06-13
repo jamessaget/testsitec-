@@ -199,6 +199,7 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Data.SqlClient, Version=4.2.0.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.4.3\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
@@ -404,12 +405,25 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MoviesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
-    <Compile Include="dbcontext.cs" />
+    <Compile Include="dbgeneration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Product.cs" />
+    <Compile Include="Migrations\201806060942031_first-miration.cs" />
+    <Compile Include="Migrations\201806060942031_first-miration.Designer.cs">
+      <DependentUpon>201806060942031_first-miration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806070839432_added-prop.cs" />
+    <Compile Include="Migrations\201806070839432_added-prop.Designer.cs">
+      <DependentUpon>201806070839432_added-prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806071247054_test5.cs" />
+    <Compile Include="Migrations\201806071247054_test5.Designer.cs">
+      <DependentUpon>201806071247054_test5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\ProductViewModel.cs" />
   </ItemGroup>
@@ -475,6 +489,17 @@
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201806060942031_first-miration.resx">
+      <DependentUpon>201806060942031_first-miration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806070839432_added-prop.resx">
+      <DependentUpon>201806070839432_added-prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071247054_test5.resx">
+      <DependentUpon>201806071247054_test5.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

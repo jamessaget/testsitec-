@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dbgeneration.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="Migrations\201806060942031_first-miration.cs" />
     <Compile Include="Migrations\201806060942031_first-miration.Designer.cs">
       <DependentUpon>201806060942031_first-miration.cs</DependentUpon>
@@ -55,6 +55,10 @@
     <Compile Include="Migrations\201806070839432_added-prop.cs" />
     <Compile Include="Migrations\201806070839432_added-prop.Designer.cs">
       <DependentUpon>201806070839432_added-prop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806071247054_test5.cs" />
+    <Compile Include="Migrations\201806071247054_test5.Designer.cs">
+      <DependentUpon>201806071247054_test5.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -64,17 +68,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj">
-      <Project>{80312365-fe8f-4311-8e95-ffcdc6173395}</Project>
-      <Name>WebApplication1</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <EmbeddedResource Include="Migrations\201806060942031_first-miration.resx">
       <DependentUpon>201806060942031_first-miration.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201806070839432_added-prop.resx">
       <DependentUpon>201806070839432_added-prop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806071247054_test5.resx">
+      <DependentUpon>201806071247054_test5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
